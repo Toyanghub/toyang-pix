@@ -1,0 +1,22 @@
+.social-contact {
+  display: flex;
+  justify-content: center;
+}
+
+.social-icon-div {
+  padding: 10px;
+  cursor: pointer;
+  margin: 7px;
+}
+
+/* Small icon but good looking when its orig size 
+.social-icon {
+  height: 40px;
+}
+*/
+
+@media only screen and (max-width: 720px) {
+  .social-icon {
+    height: 50px;
+  }
+}
