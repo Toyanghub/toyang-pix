@@ -19,3 +19,5 @@ export const WorkData = [
     work: "Position as Associate Software Engineer (ASE), Level 2 Application Support in Financial/Supply Chain Management (Peoplesoft) ",
   },
 ];
+
+//sample add here
