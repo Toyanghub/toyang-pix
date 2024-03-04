@@ -1,7 +1,7 @@
-import React from 'react';
-import Separator from '../../common/separator';
-import SocialContact from '../../common/social-contact';
-import './contact.css';
+import React from "react";
+import Separator from "../../common/separator";
+import SocialContact from "../../common/social-contact";
+import "./contact.css";
 function Contact() {
   return (
     <div className="contact">
@@ -13,7 +13,7 @@ function Contact() {
           <SocialContact />
         </div>
         <div className="download">
-          <a download href={require('../../../assets/resume.pdf')}>
+          <a download href={require("../../../assets/resumes.pdf")}>
             <i class="fi fi-ss-inbox-in"></i>
             Download Resume
           </a>

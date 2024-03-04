@@ -1,7 +1,7 @@
-import React, { useState } from 'react';
-import './header.css';
-import Mobile from './mobile';
-import Web from './web';
+import React, { useState } from "react";
+import "./header.css";
+import Mobile from "./mobile";
+import Web from "./web";
 
 function Header() {
   const [isOpen, setIsOpen] = useState(false);
