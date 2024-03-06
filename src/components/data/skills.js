@@ -36,7 +36,7 @@ export const SkillData = [
         icon: <i class="devicon-nodejs-plain colored"></i>,
       },
       {
-        name: "Sql Developer",
+        name: "MySQL",
         icon: <i class="devicon-mysql-plain-wordmark colored"></i>,
       },
     ],
