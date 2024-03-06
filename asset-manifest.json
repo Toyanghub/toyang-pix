@@ -1,17 +1,17 @@
 {
   "files": {
     "main.css": "/toyang-pix/static/css/main.6345d68f.css",
-    "main.js": "/toyang-pix/static/js/main.fe251de6.js",
+    "main.js": "/toyang-pix/static/js/main.74189267.js",
     "static/js/787.3d658d11.chunk.js": "/toyang-pix/static/js/787.3d658d11.chunk.js",
-    "static/media/resume.pdf": "/toyang-pix/static/media/resume.52d0aacd289f03c5a6ef.pdf",
+    "static/media/resumes.pdf": "/toyang-pix/static/media/resumes.45d606d7e05ceb03e047.pdf",
     "static/media/coding.png": "/toyang-pix/static/media/coding.c4525a1adc03e3563ef2.png",
     "index.html": "/toyang-pix/index.html",
     "main.6345d68f.css.map": "/toyang-pix/static/css/main.6345d68f.css.map",
-    "main.fe251de6.js.map": "/toyang-pix/static/js/main.fe251de6.js.map",
+    "main.74189267.js.map": "/toyang-pix/static/js/main.74189267.js.map",
     "787.3d658d11.chunk.js.map": "/toyang-pix/static/js/787.3d658d11.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.6345d68f.css",
-    "static/js/main.fe251de6.js"
+    "static/js/main.74189267.js"
   ]
 }
