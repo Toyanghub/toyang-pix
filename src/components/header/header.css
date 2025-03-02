@@ -1,45 +1,179 @@
+/* =============================================================================
+   HEADER COMPONENT
+   Modern, minimal styling with improved responsiveness and visual appeal
+============================================================================= */
+
 .header {
   display: flex;
   justify-content: space-between;
-  flex: 1;
-  padding: 12px;
+  align-items: center;
+  padding: 18px 24px;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background-color: rgba(255, 255, 255, 0.98);
+  backdrop-filter: blur(8px);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.03);
+  transition: all 0.3s ease;
+}
+
+/* Subtle scale-up effect when scrolling */
+.header:hover {
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.06);
+}
+
+/* Logo styling with subtle animation */
+.logo {
+  font-size: 36px;
+  font-weight: 800;
+  color: #ff4949;
   position: relative;
+  transition: transform 0.3s ease, color 0.3s ease;
+  cursor: pointer;
+}
+
+/* Logo hover effect */
+.logo:hover {
+  transform: scale(1.03);
+}
+
+/* Modern neon-like glow on logo hover */
+.logo::after {
+  content: "";
+  position: absolute;
+  bottom: -3px;
+  left: 0;
+  width: 0;
+  height: 0;
+  background: linear-gradient(90deg, #ff4949, #ff7e79);
+  transition: width 0.3s ease;
+  border-radius: 2px;
+}
+
+.logo:hover::after {
+  width: 100%;
+}
+
+/* Menu container */
+.menu {
+  display: flex;
+  justify-content: flex-end;
   align-items: center;
 }
 
-.menu {
+/* Web menu styling */
+.web-menu {
   display: flex;
-  flex: 1;
-  justify-content: flex-end;
+  transition: opacity 0.3s ease;
 }
 
+/* Menu icon styling */
 .menu-icon {
-  font-size: 24px;
+  font-size: 22px;
+  color: #333;
+  cursor: pointer;
+  padding: 8px;
+  border-radius: 50%;
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
+.menu-icon:hover {
+  color: #ff4949;
+  background-color: rgba(255, 73, 73, 0.08);
+  transform: rotate(5deg);
+}
+
+/* Mobile menu container */
 .mobile-menu {
   display: none;
 }
 
-.web-menu {
+/* Fullscreen mobile menu */
+.mobile-menu.open {
   display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(255, 255, 255, 0.98);
+  backdrop-filter: blur(8px);
+  z-index: 200;
+  transition: all 0.3s ease;
 }
 
-.logo {
+/* Mobile menu options */
+.mobile-options {
   display: flex;
-  font-size: 36px;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
+
+.mobile-option {
+  font-size: 22px;
+  margin: 15px 0;
+}
+
+.mobile-option a {
+  text-decoration: none;
+  color: #333;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  transition: color 0.2s ease;
+}
+
+.mobile-option a:hover {
   color: #ff4949;
-  font-weight: 800;
 }
 
+/* =============================================================================
+   RESPONSIVE STYLES
+============================================================================= */
+/* Large screens */
+@media only screen and (min-width: 1200px) {
+  .header {
+    padding: 20px 32px;
+  }
+
+  .logo {
+    font-size: 40px;
+  }
+}
+
+/* Small screens and mobile */
 @media only screen and (max-width: 720px) {
+  .header {
+    padding: 14px 16px;
+  }
+
   .mobile-menu {
     display: flex;
   }
+
   .web-menu {
     display: none;
   }
+
   .logo {
-    font-size: 23px;
+    font-size: 24px;
+  }
+}
+
+/* Extra small screens */
+@media only screen and (max-width: 480px) {
+  .header {
+    padding: 12px 14px;
+  }
+
+  .logo {
+    font-size: 22px;
   }
 }
