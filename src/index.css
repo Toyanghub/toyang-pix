@@ -12,4 +12,5 @@ code {
 /* Prevent scrolling when the mobile menu is open */
 .no-scroll {
   overflow: hidden;
+  /* overflow: hidden; */
 }
