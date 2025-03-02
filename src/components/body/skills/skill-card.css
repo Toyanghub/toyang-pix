@@ -1,30 +1,141 @@
+/* ======= SKILL CARD BASE STYLING ======= */
+/* Main container for individual skill cards */
 .skill-card {
   width: max-content;
-  padding: 8px 16px;
-  height: 120px;
+  padding: 12px 20px;
+  height: 130px;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  margin: 6px;
-  border-radius: 8px;
-  /* background-color: #ff4949; */
+  margin: 8px;
+  border-radius: 12px;
+  /* Adjust background opacity here if needed */
+  background: rgba(255, 255, 255, 0.8);
+  /* Card shadow - increase last value for more opacity */
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.06);
+  /* Controls the smoothness of hover transitions */
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
 }
 
+/* ======= TOP BORDER ACCENT ======= */
+/* Colorful top border that appears on hover */
+.skill-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 4px;
+  /* Change gradient colors here */
+  background: linear-gradient(90deg, #ff4949, #ff7e79);
+  transform: translateY(-4px);
+  transition: transform 0.3s ease;
+}
+
+/* ======= HOVER EFFECTS ======= */
+/* Card hover animation - moves card up slightly */
+.skill-card:hover {
+  transform: translateY(-5px);
+  /* Increase shadow on hover */
+  box-shadow: 0 12px 25px rgba(0, 0, 0, 0.1);
+}
+
+/* Shows the top border on hover */
+.skill-card:hover::before {
+  transform: translateY(0);
+}
+
+/* ======= ICON STYLING ======= */
 .skill-icon {
   font-size: 80px;
+  transition: transform 0.3s ease, color 0.3s ease;
+  margin-bottom: 10px;
 }
 
+/* Icon grows and changes color on hover */
+.skill-card:hover .skill-icon {
+  transform: scale(1.1);
+  /* Change hover color here */
+  color: #ff4949;
+}
+
+/* ======= SKILL NAME STYLING ======= */
 .skill-name {
-  font-size: 18px;
+  font-size: 16px;
+  font-weight: 600;
+  transition: color 0.3s ease;
+  text-align: center;
+  margin-top: 8px;
 }
 
+/* Text color change on hover */
+.skill-card:hover .skill-name {
+  /* Change hover text color here - match with icon color */
+  color: #ff4949;
+}
+
+/* ======= RESPONSIVE BREAKPOINTS ======= */
+/* Large screens (desktops, 1200px and above) */
+@media only screen and (min-width: 1200px) {
+  .skill-card {
+    padding: 15px 25px;
+    height: 140px;
+  }
+
+  .skill-icon {
+    font-size: 85px;
+  }
+
+  .skill-name {
+    font-size: 17px;
+  }
+}
+
+/* Medium screens (tablets, between 992px and 1199px) */
+@media only screen and (max-width: 992px) {
+  .skill-card {
+    height: 120px;
+    padding: 10px 18px;
+    margin: 6px;
+  }
+
+  .skill-icon {
+    font-size: 70px;
+  }
+}
+
+/* Small screens (mobile landscape, between 720px and 991px) */
 @media only screen and (max-width: 720px) {
   .skill-card {
-    width: max-content;
-    height: 100px;
+    height: 110px;
+    padding: 8px 16px;
+    margin: 5px;
   }
+
   .skill-icon {
     font-size: 60px;
+  }
+
+  .skill-name {
+    font-size: 14px;
+  }
+}
+
+/* Extra small screens (mobile portrait, 480px and below) */
+@media only screen and (max-width: 480px) {
+  .skill-card {
+    height: 100px;
+    padding: 6px 12px;
+  }
+
+  .skill-icon {
+    font-size: 50px;
+  }
+
+  .skill-name {
+    font-size: 12px;
   }
 }

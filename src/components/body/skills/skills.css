@@ -1,34 +1,156 @@
+/* ===== SKILLS SECTION MAIN STYLES ===== */
+/* Container for the entire skills section */
 .skills {
   display: flex;
   flex-direction: column;
   width: 100%;
+  margin-bottom: 2rem;
+  position: relative;
 }
 
+/* Animation container for fade-in effect */
+.skills-container {
+  animation: fadeIn 0.8s ease-in-out;
+}
+
+/* ===== INDIVIDUAL SKILL SECTION STYLES ===== */
+/* Layout for each skill category (e.g., Frontend, Backend) */
 .skills-section {
   display: flex;
   justify-content: space-between;
-  margin: 12px 0px;
+  margin: 24px 0;
+  padding: 10px;
+  border-radius: 10px;
+  transition: all 0.3s ease;
 }
 
+/* Hover effect for skill sections */
+.skills-section:hover {
+  background: rgba(255, 255, 255, 0.05);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.03);
+  transform: translateY(-2px);
+}
+
+/* ===== SECTION TITLE STYLES ===== */
+/* Style for each skill category heading */
 .skills-section-title {
-  font-size: 24px;
-  font-weight: 600;
+  font-size: 26px;
+  font-weight: 700;
+  color: #333;
+  position: relative;
+  padding-bottom: 8px;
+  margin-right: 20px;
+  min-width: 120px;
 }
 
+/* Underline accent for section titles */
+.skills-section-title::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 40px;
+  height: 4px;
+  background: linear-gradient(90deg, #ff4949, #ff7e79);
+  border-radius: 2px;
+  transition: width 0.3s ease;
+}
+
+/* Expand underline on hover */
+.skills-section:hover .skills-section-title::after {
+  width: 70px;
+}
+
+/* ===== SKILLS LIST LAYOUT ===== */
+/* Container for skill items within each section */
 .skills-list {
   display: flex;
   flex-wrap: wrap;
-  max-width: 70%;
+  max-width: 75%;
   justify-content: flex-end;
+  gap: 12px;
+  align-items: center;
 }
 
-@media only screen and (max-width: 720px) {
-  .skills-list {
-    max-width: 100%;
-    justify-content: center;
+/* ===== RESPONSIVE DESIGN ===== */
+/* Large desktop screens (1400px and above) */
+@media only screen and (min-width: 1400px) {
+  .skills-section {
+    margin: 30px 0;
+    padding: 15px;
   }
+
+  .skills-section-title {
+    font-size: 30px;
+  }
+}
+
+/* Medium screens (992px and below) */
+@media only screen and (max-width: 992px) {
+  .skills-section {
+    margin: 20px 0;
+  }
+
+  .skills-section-title {
+    font-size: 24px;
+    min-width: 100px;
+  }
+
+  .skills-list {
+    max-width: 70%;
+    gap: 10px;
+  }
+}
+
+/* Small screens - tablets (768px and below) */
+@media only screen and (max-width: 768px) {
   .skills-section {
     flex-direction: column;
     align-items: center;
+    text-align: center;
+    margin: 30px 0;
+  }
+
+  .skills-section-title {
+    margin-right: 0;
+    margin-bottom: 20px;
+  }
+
+  /* Center the underline in mobile view */
+  .skills-section-title::after {
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  .skills-list {
+    max-width: 100%;
+    justify-content: center;
+    gap: 8px;
+  }
+}
+
+/* Extra small screens - mobile phones (480px and below) */
+@media only screen and (max-width: 480px) {
+  .skills-section {
+    padding: 5px;
+    margin: 20px 0;
+  }
+
+  .skills-section-title {
+    font-size: 22px;
+    margin-bottom: 15px;
+  }
+}
+
+/* ===== ANIMATIONS ===== */
+/* Fade in animation for skills container */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
   }
 }
