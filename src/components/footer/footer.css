@@ -1,6 +1,113 @@
+/* =============================================================================
+   FOOTER SECTION
+   Modern, minimal styling for the page footer with improved readability
+============================================================================= */
+
 .footer {
-  padding: 12px;
+  /* Layout */
   display: flex;
   justify-content: center;
   align-items: center;
+  padding: 24px 20px;
+  margin-top: -75px;
+
+  /* Typography - enhanced for readability */
+  font-size: 15px;
+  font-weight: 500;
+  letter-spacing: 0.3px;
+  color: #333; /* Darker text for better contrast */
+  text-align: center;
+  line-height: 1.6;
+
+  /* Modern subtle styling */
+  background: linear-gradient(
+    to right,
+    rgba(255, 255, 255, 0.5),
+    rgba(255, 73, 73, 0.03),
+    rgba(255, 255, 255, 0.5)
+  );
+  border-top: 1px solid rgba(0, 0, 0, 0.04);
+  position: relative;
+}
+
+/* Emoji styling with improved spacing */
+.footer .emoji {
+  display: inline-block;
+  margin: 0 5px; /* More space around emoji */
+  transform: translateY(1px);
+  transition: transform 0.3s ease;
+}
+
+.footer:hover .emoji {
+  transform: translateY(1px) scale(1.2);
+}
+
+/* Author name styling with better contrast */
+.author-name {
+  position: relative;
+  color: #e13b3b; /* Slightly darker red for better readability */
+  font-weight: 600;
+  padding: 0 4px; /* More horizontal padding */
+  margin: 0 8px; /* Add margin for text spacing */
+  transition: color 0.2s ease;
+}
+
+/* Subtle underline animation for author name */
+.author-name::after {
+  content: "";
+  position: absolute;
+  width: 0;
+  height: 2px;
+  bottom: -3px; /* Lower position for better visibility */
+  left: 0;
+  background-color: #e13b3b;
+  transition: width 0.3s ease;
+}
+
+.footer:hover .author-name::after {
+  width: 100%;
+}
+
+/* Year with proper spacing */
+.year {
+  margin-left: 5px;
+  font-weight: 500;
+}
+
+/* Wrapper for content to ensure proper spacing */
+.footer-content {
+  padding: 2px 5px; /* Inner padding for text */
+  display: inline-flex;
+  align-items: center;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 3px; /* Gap between flex items */
+}
+
+/* Responsive adjustments */
+@media only screen and (min-width: 992px) {
+  .footer {
+    padding: 26px 20px;
+    font-size: 16px;
+    letter-spacing: 0.4px;
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  .footer {
+    padding: 20px 15px;
+    font-size: 14px;
+  }
+}
+
+@media only screen and (max-width: 480px) {
+  .footer {
+    padding: 18px 12px;
+    font-size: 13px;
+    line-height: 1.7; /* Increased line height on small screens */
+  }
+
+  .footer-content {
+    gap: 4px; /* More space between words on small screens */
+  }
 }
