@@ -1,42 +1,124 @@
+/* 
+ * About Section Styles
+ * This file contains styling for the about section of the portfolio
+ * Last updated: [Current date would go here]
+ */
+
+/* Main container for the about section */
 .about {
-  padding: 40px;
+  padding: 5% 8%; /* Responsive padding that scales with viewport */
+  display: flex;
+  flex-direction: column;
+  gap: 2rem; /* Space between child elements */
 }
 
+/* Top section that contains info and photo side by side */
 .about-top {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  gap: 2rem; /* Space between info and photo */
 }
 
-.picture {
-  height: 420px;
-}
-
+/* Text content container on the left */
 .about-info {
-  font-size: 24px;
+  flex: 1; /* Takes up equal space as the photo */
+  font-size: clamp(1rem, 2.5vw, 1.5rem); /* Responsive font size */
+  line-height: 1.6; /* Improves readability */
 }
 
+/* Heading inside the info section */
+.about-info h1 {
+  font-weight: normal;
+  font-size: clamp(1.2rem, 3vw, 1.8rem); /* Responsive heading size */
+  margin-bottom: 1.5rem;
+}
+
+/* Photo container on the right */
+.about-photo {
+  flex: 1; /* Takes up equal space as the info */
+  display: flex;
+  justify-content: center; /* Center the image horizontally */
+}
+
+/* The actual image element */
+.picture {
+  max-width: 100%; /* Ensures image is never wider than container */
+  height: auto; /* Maintains aspect ratio */
+  max-height: 420px; /* Limits vertical size */
+  object-fit: contain; /* Ensures image is fully visible */
+}
+
+/* Styling for the name with highlight color */
 .info-name {
-  color: #ff4949;
-  font-size: 32px;
+  color: #ff4949; /* Red highlight color */
+  font-size: clamp(1.5rem, 3.5vw, 2rem); /* Responsive name size */
+  font-weight: bold;
 }
 
-@media only screen and (max-width: 720px) {
-  .about-top {
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+/* Container for social media links */
+.about-social {
+  margin-top: 1rem;
+}
+
+/* 
+ * RESPONSIVE STYLES
+ * Breakpoints:
+ * - Large screens: 1200px+
+ * - Extra large: 1600px+
+ * - Medium: 992px and below
+ * - Small: 768px and below
+ * - Extra small: 480px and below
+ */
+
+/* Large screens (1200px and above) */
+@media only screen and (min-width: 1200px) {
+  .about-photo {
+    flex: 1.2; /* Give more space to the photo on large screens */
+  }
+
+  .picture {
+    max-height: 500px; /* Increase max height on large screens */
   }
 }
 
-.picture {
-  height: 650px;
+/* Extra large screens (1600px and above) */
+@media only screen and (min-width: 1600px) {
+  .about-photo {
+    flex: 1.5; /* Even more space on very large screens */
+  }
+
+  .picture {
+    max-height: 600px; /* Further increase max height */
+  }
 }
 
-.about-info {
-  font-size: 20px;
+/* Medium screens (992px and below) */
+@media only screen and (max-width: 992px) {
+  .about {
+    padding: 4% 5%; /* Reduce padding on medium screens */
+  }
 }
 
-.info-name {
-  font-size: 26px;
+/* Small screens (768px and below) */
+@media only screen and (max-width: 768px) {
+  .about-top {
+    flex-direction: column-reverse; /* Stack elements with photo on top */
+    text-align: center; /* Center-align text */
+  }
+
+  .about-info {
+    margin-top: 2rem; /* Add space between photo and text */
+  }
+}
+
+/* Extra small screens (480px and below) */
+@media only screen and (max-width: 480px) {
+  .about {
+    padding: 2rem 1rem; /* Smaller fixed padding for tiny screens */
+  }
+
+  .picture {
+    max-height: 300px; /* Reduce image height on small screens */
+  }
 }
