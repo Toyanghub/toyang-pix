@@ -1,13 +1,178 @@
+/* =============================================================================
+   WORK EXPERIENCE SECTION
+   Styles for the work experience section of the portfolio
+============================================================================= */
+
+/* =============================================================================
+   MAIN CONTAINER
+   Base layout for the work section container
+============================================================================= */
 .work {
+  /* Layout */
   display: flex;
   flex-direction: column;
   width: 100%;
+  position: relative;
+
+  /* Spacing */
+  padding: 20px 0;
+  margin-bottom: 4rem;
 }
 
+/* =============================================================================
+   SECTION TITLE
+   Styling for the "Work Experience" heading
+============================================================================= */
+.section-title {
+  /* Text styling */
+  font-size: 28px;
+  font-weight: 700;
+  color: #222;
+
+  /* Positioning */
+  position: relative;
+  margin: 0 0 12px 0;
+}
+
+/* Underline accent for the section title */
+.section-title:after {
+  content: "";
+  position: absolute;
+  bottom: -8px;
+  left: 0;
+
+  /* Line dimensions */
+  width: 50px;
+  height: 4px;
+
+  /* Visual styling */
+  background: linear-gradient(
+    90deg,
+    #ff4949,
+    #ff7e79
+  ); /* Brand color gradient */
+  border-radius: 2px;
+
+  /* Animation */
+  transition: width 0.3s ease;
+}
+
+/* Expand underline on section hover */
+.work:hover .section-title:after {
+  width: 70px;
+}
+
+/* =============================================================================
+   WORK CARDS LAYOUT
+   Container for all work experience cards
+============================================================================= */
 .work-list {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
-  align-items: center;
-  margin: 24px 0px;
+  align-items: stretch;
+
+  /* Spacing */
+  gap: 30px;
+  margin: 40px 0 24px;
+}
+
+/* =============================================================================
+   DECORATIVE ELEMENTS
+   Visual enhancements that add depth to the section
+============================================================================= */
+/* Pink/red subtle background glow */
+.work::before {
+  content: "";
+  position: absolute;
+  top: 40%;
+  left: -5%;
+  width: 35%;
+  height: 70%;
+  background-color: rgba(
+    255,
+    73,
+    73,
+    0.03
+  ); /* Very light red with low opacity */
+  border-radius: 50%;
+  z-index: -1;
+  filter: blur(80px);
+}
+
+/* Blue subtle accent glow */
+.work::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  right: -2%;
+  width: 20%;
+  height: 40%;
+  background-color: rgba(
+    73,
+    140,
+    255,
+    0.02
+  ); /* Very light blue with low opacity */
+  border-radius: 50%;
+  z-index: -1;
+  filter: blur(70px);
+}
+
+/* =============================================================================
+   RESPONSIVE STYLES
+   Adjustments for different screen sizes
+============================================================================= */
+/* Large screens (1200px and above) */
+@media only screen and (min-width: 1200px) {
+  .work-list {
+    gap: 35px; /* More breathing room between cards */
+  }
+
+  .section-title {
+    font-size: 32px; /* Larger title on big screens */
+  }
+}
+
+/* Medium screens (992px and below) */
+@media only screen and (max-width: 992px) {
+  .work-list {
+    gap: 25px; /* Slightly tighter spacing */
+  }
+
+  .section-title {
+    font-size: 26px; /* Slightly smaller title */
+  }
+}
+
+/* Mobile screens (768px and below) */
+@media only screen and (max-width: 768px) {
+  .work-list {
+    justify-content: center; /* Center cards on mobile */
+    gap: 30px;
+  }
+
+  .section-title {
+    font-size: 24px;
+    text-align: center; /* Center align title on mobile */
+  }
+
+  /* Center the underline on mobile */
+  .section-title:after {
+    left: 50%;
+    transform: translateX(-50%);
+  }
+}
+
+/* Small mobile screens (480px and below) */
+@media only screen and (max-width: 480px) {
+  .work {
+    padding: 10px 0;
+    margin-bottom: 3rem; /* Less bottom margin on tiny screens */
+  }
+
+  .work-list {
+    margin: 30px 0; /* Adjusted vertical margins */
+    gap: 25px;
+  }
 }

@@ -1,38 +1,346 @@
+/* =============================================================================
+   WORK CARD COMPONENT
+   The main component for displaying work experience items
+============================================================================= */
+
+/* Base card styling
+-------------------------------------------- */
 .work-card {
-  padding: 8px;
-  width: 45%;
-  margin-top: 16px;
+  /* Layout */
   display: flex;
+  width: 45%;
+  padding: 20px;
+  margin-top: 16px;
+  flex-direction: row-reverse; /* Logo on left, text on right */
   justify-content: space-between;
-  align-items: center;
-  flex-direction: row-reverse;
+  align-items: flex-start;
+
+  /* Visual styling */
+  background: white;
+  border-radius: 12px;
+  border-left: 4px solid #ff4949; /* Brand color accent */
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+
+  /* Behavior */
+  overflow: hidden;
+  cursor: pointer; /* Indicate clickable */
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
+.work-card:hover {
+  transform: translateY(-5px); /* Lift effect on hover */
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.12); /* Deeper shadow on hover */
+}
+
+/* Card components
+-------------------------------------------- */
+/* Company logo */
 .work-logo {
   height: 80px;
+  width: 80px;
+  padding: 8px;
+  object-fit: contain;
+  border-radius: 8px;
+  background: #f9f9f9;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.05);
+  transition: transform 0.3s ease;
 }
 
+.work-card:hover .work-logo {
+  transform: scale(1.05); /* Slightly enlarge logo on hover */
+}
+
+/* Content container */
 .work-info {
   display: flex;
-  align-items: flex-start;
   flex-direction: column;
+  align-items: flex-start;
+  width: 75%;
+  margin-right: 20px;
+}
+
+/* Text elements */
+.company-name {
+  font-weight: 700;
+  font-size: 18px;
+  margin: 0 0 6px 0;
+  color: #222;
+  letter-spacing: 0.3px;
+}
+
+.work-designation {
+  font-size: 15px;
+  font-weight: 500;
+  color: #333;
+  margin-bottom: 6px;
 }
 
 .work-dates {
-  color: #ff4949;
+  color: #ff4949; /* Brand color for dates */
+  font-size: 14px;
+  font-weight: 600;
+  margin-bottom: 12px;
+  display: block;
 }
 
 .work-desc {
   text-align: left;
+  color: #333;
+  font-size: 14.5px;
+  line-height: 1.6;
+  letter-spacing: 0.2px;
+
+  /* Truncate text with ellipsis after 3 lines */
   display: -webkit-box;
-  -webkit-line-clamp: 2;
-  -webkit-box-orient: horizontal;
-  overflow: ellipsis;
-  max-width: 80%;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  max-width: 100%;
 }
 
-@media only screen and (max-width: 720px) {
+/* =============================================================================
+   MODAL STYLING
+   Styles for the full-screen modal that appears when clicking a work card
+============================================================================= */
+
+/* Modal overlay */
+.work-modal-overlay {
+  /* Position fixed to cover entire viewport */
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 1000;
+
+  /* Layout */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+
+  /* Visual */
+  background-color: rgba(0, 0, 0, 0.7); /* Semi-transparent background */
+
+  /* Animation */
+  animation: fadeIn 0.2s ease-in-out;
+}
+
+/* Modal container */
+.work-modal-content {
+  background-color: white;
+  width: 90%;
+  max-width: 800px;
+  max-height: 90vh;
+  border-radius: 12px;
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
+  overflow-y: auto; /* Allow scrolling for long content */
+  animation: slideUp 0.3s ease-out;
+}
+
+/* Modal header */
+.modal-header {
+  display: flex;
+  padding: 20px;
+  align-items: center;
+  position: relative;
+  background-color: #f9f9f9;
+  border-bottom: 1px solid #eee;
+  border-top-left-radius: 12px;
+  border-top-right-radius: 12px;
+}
+
+.modal-logo {
+  height: 70px;
+  width: 70px;
+  margin-right: 20px;
+  padding: 8px;
+  object-fit: contain;
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.05);
+}
+
+.modal-header-text {
+  flex: 1;
+}
+
+.modal-company-name {
+  margin: 0;
+  font-size: 24px;
+  color: #333;
+}
+
+.modal-designation {
+  margin: 5px 0;
+  font-size: 18px;
+  font-weight: 600;
+  color: #555;
+}
+
+.modal-dates {
+  color: #ff4949; /* Brand color */
+  font-size: 15px;
+  font-weight: 600;
+}
+
+/* Close button */
+.modal-close {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  height: 30px;
+  width: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 28px;
+  color: #777;
+  background: none;
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.modal-close:hover {
+  background-color: rgba(0, 0, 0, 0.05);
+  color: #333;
+}
+
+/* Modal body */
+.modal-body {
+  padding: 25px;
+}
+
+.modal-description {
+  margin: 0;
+  font-size: 16px;
+  line-height: 1.7;
+  color: #333;
+}
+
+/* =============================================================================
+   ANIMATIONS
+============================================================================= */
+/* Fade in animation for modal overlay */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* Slide up animation for modal content */
+@keyframes slideUp {
+  from {
+    transform: translateY(30px);
+    opacity: 0.5;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+/* =============================================================================
+   RESPONSIVE STYLES
+============================================================================= */
+/* Large screens */
+@media only screen and (min-width: 1200px) {
+  .work-card {
+    padding: 24px;
+  }
+
+  .company-name {
+    font-size: 20px;
+  }
+
+  .work-desc {
+    font-size: 15px;
+  }
+}
+
+/* Medium screens */
+@media only screen and (max-width: 992px) {
+  .work-card {
+    width: 47%;
+  }
+}
+
+/* Small screens */
+@media only screen and (max-width: 768px) {
+  /* Card styles */
   .work-card {
     width: 100%;
+    padding: 18px;
+  }
+
+  .work-info {
+    width: 70%;
+  }
+
+  .work-desc {
+    -webkit-line-clamp: 4; /* Show more lines on smaller screens */
+  }
+
+  /* Modal styles */
+  .work-modal-content {
+    width: 95%;
+  }
+
+  .modal-header {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .modal-logo {
+    margin-right: 0;
+    margin-bottom: 15px;
+  }
+
+  .modal-close {
+    top: 10px;
+    right: 10px;
+  }
+}
+
+/* Extra small screens */
+@media only screen and (max-width: 480px) {
+  /* Card styles */
+  .work-card {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 20px 15px;
+  }
+
+  .work-logo {
+    margin-bottom: 15px;
+  }
+
+  .work-info {
+    width: 100%;
+    margin-right: 0;
+    align-items: center;
+  }
+
+  .work-desc {
+    text-align: center;
+  }
+
+  /* Modal styles */
+  .modal-company-name {
+    font-size: 20px;
+  }
+
+  .modal-designation {
+    font-size: 16px;
+  }
+
+  .modal-body {
+    padding: 20px 15px;
   }
 }
