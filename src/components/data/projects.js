@@ -40,4 +40,20 @@ export const ProjectData = [
     github: "https://github.com/Toyanghub/nextjs-blog",
     image: require("../../assets/blog-image.jpg"),
   },
+  {
+    id: 2,
+    title: "Chillero't Safe",
+    about:
+      "Your digital oasis for premium frozen treats and craft beverages! Explore our artisanal ice creams and refreshing cocktails in a space designed for comfort and indulgence. Come for the flavors, stay for the vibe! ❄️🍹",
+    tags: [
+      "Next.js 15",
+      "React 19",
+      "Tailwind CSS v4",
+      "Framer Motion",
+      "TypeScript",
+    ],
+    demo: "https://chillerot-safe.vercel.app/",
+    github: "https://github.com/Toyanghub/chill-zone",
+    image: require("../../assets/chillerot-safe.jpg"),
+  },
 ];
