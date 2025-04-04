@@ -56,4 +56,25 @@ export const ProjectData = [
     github: "https://github.com/Toyanghub/chill-zone",
     image: require("../../assets/chillerot-safe.jpg"),
   },
+  {
+    id: 3,
+    title: "Bloom & Petal",
+    about:
+      "Where petals tell stories and flowers speak poetry! Our artisanal blooms transform ordinary moments into extraordinary memories, crafted with passion since 2010. Elegant, sustainable, unforgettable – nature's art delivered with love! 🌸✨",
+    tags: ["Vite", "React", "CSS/SCSS", "JavaScript"],
+    demo: "https://flower-shop-eight-phi.vercel.app/",
+    github: "https://github.com/Toyanghub/flower-shop",
+    image: require("../../assets/bloom-n-petal.jpg"),
+  },
+  {
+    id: 4,
+    title: "L300 Van Booking System",
+    about:
+      "A streamlined booking platform for L300 van services. Schedule trips, manage reservations, and explore routes with our user-friendly interface. Reliable transportation planning made simple! 🚐✨",
+    tags: ["PHP", "MySQL", "Bootstrap", "JavaScript", "jQuery", "AJAX"],
+    demo: "https://hotpink-gnat-527051.hostingersite.com/",
+    github: "https://github.com/Toyanghub/l300-booking-van",
+    youtube: "https://www.youtube.com/watch?v=_xJOIyWvmyQ&t=13s",
+    image: require("../../assets/l300.jpg"),
+  },
 ];

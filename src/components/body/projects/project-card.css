@@ -175,3 +175,25 @@
     font-size: 12px;
   }
 }
+
+/* Specific styling for YouTube button */
+.youtube-link {
+  display: block;
+  width: auto;
+}
+
+.youtube-button {
+  width: max-content; /* Makes button only as wide as its content */
+  min-width: 120px; /* Sets minimum width */
+  justify-content: center; /* Centers text in button */
+}
+
+/* Make sure project-links properly aligns items */
+.project-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin: 12px 0;
+  width: 100%;
+  align-items: flex-start;
+}
